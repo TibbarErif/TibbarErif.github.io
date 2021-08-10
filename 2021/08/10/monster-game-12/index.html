@@ -98,7 +98,7 @@
 </blockquote>
 <p>为了方便直观的看出图层，每一个地图都有几个空的根节点 <code>Div_1</code>、<code>Div_2</code> 以此类推。</p>
 <p><img src="https://pic.imgdb.cn/item/610f501e5132923bf8cf4a39.jpg" alt="空的根节点"></p>
-<p><code>sort</code> 值为<code>0~100</code> 的就放在 <code>Div_1</code>，值为 <code>101~200</code> 的就放在 <code>Div_2</code>，玩家控制的角色放在第三层就可以了，值为 300。</p>
+<p><code>sort</code> 值为<code>100~199</code> 的就放在 <code>Div_1</code>，值为 <code>200~299</code> 的就放在 <code>Div_2</code>，玩家控制的角色放在第三层就可以了，值为 399（其他的 NPC 节点也在第三层，主角是最高的 399，这样就可以显示在 NPC 的上方）。</p>
 <h3 id="地图中的角色"><a href="#地图中的角色" class="headerlink" title="地图中的角色"></a>地图中的角色</h3><p>先创建一个角色节点，给角色加上刚体，然后用物理学的方式来控制玩家移动，再加上 Unity 的动画系统，就实现了角色行走+移动动画。但这些并不是框架类要实现的，因为这已经是与游戏本身相关的逻辑了。</p>
 <blockquote>
 <p>通常的 RPG 游戏有四方向行走，但是我们的新作只能左右移动，这不是“通用”的，所以不能在框架里写角色的移动逻辑。</p>
