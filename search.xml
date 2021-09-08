@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>从零开始的像素画学习（三）临摹玛丽露</title>
+      <link href="2021/09/09/piexl-03/"/>
+      <url>2021/09/09/piexl-03/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>距离第一次画皮卡丘已经过去了 4 个月，由于游戏的进度停滞不前所以打算做点别的什么事情转换心情。<br>这次要画的是玛丽露，使用临摹的方式。</p><h2 id="参考图像"><a href="#参考图像" class="headerlink" title="参考图像"></a>参考图像</h2><p>参考图为宝可梦官方图鉴：</p><p><img src="https://pic.imgdb.cn/item/6138e72044eaada739b9bca5.jpg" alt="玛丽露"></p><h2 id="PS-设置参考图"><a href="#PS-设置参考图" class="headerlink" title="PS 设置参考图"></a>PS 设置参考图</h2><p>首先新建一张透明底的空白图，用来作为画布；<br>其次再打开上面的参考图，要让参考图一直显示在旁边，需要点击顶部导航栏的「窗口」然后选择「排列」，最后选择双联垂直排列即可。</p><p><img src="https://pic.imgdb.cn/item/6138e7bf44eaada739badbdc.jpg" alt="双联垂直排列"></p><p>右侧即为参考图：</p><p><img src="https://pic.imgdb.cn/item/6138e80244eaada739bb512b.jpg" alt="参考图"></p><h2 id="临摹"><a href="#临摹" class="headerlink" title="临摹"></a>临摹</h2><p>直接将原图导入空白画布，就会自动变成模糊版的像素图：</p><p><img src="https://pic.imgdb.cn/item/6138e83044eaada739bba0c0.jpg" alt="导入后的样子"></p><p>然后在空白的图层上面照着描线即可。</p><h2 id="描线"><a href="#描线" class="headerlink" title="描线"></a>描线</h2><p>描线的成果如下：</p><p><img src="https://pic.imgdb.cn/item/6138e87f44eaada739bc30bb.jpg" alt="描线"></p><h2 id="上色"><a href="#上色" class="headerlink" title="上色"></a>上色</h2><p>在左侧的菜单中找到吸管工具：</p><p><img src="https://pic.imgdb.cn/item/6138e8f044eaada739bcf330.jpg" alt="吸管工具"></p><p>使用习惯工具从参考图上吸取颜色。<br>使用快捷键 <code>Shfit+Ctrl+N</code> 创建一个新的图层用来上色。<br>然后慢慢涂满颜色，不知道怎么才能填充，所以只能用铅笔慢慢涂了。</p><p><img src="https://pic.imgdb.cn/item/6138eaf744eaada739c04766.jpg" alt="涂满颜色"></p><p>完成版效果：</p><p><img src="https://pic.imgdb.cn/item/6138f00b44eaada739c892e5.jpg" alt="完成版"></p><p>缩小之后看起来好多了：</p><p><img src="https://pic.imgdb.cn/item/6138f02844eaada739c8c0e6.jpg" alt="缩小的效果"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日常学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 开发技术 </tag>
+            
+            <tag> 游戏素材 </tag>
+            
+            <tag> 像素画 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>记一次濒死体验——死亡烤鸭套餐</title>
       <link href="2021/08/30/my-story-01/"/>
       <url>2021/08/30/my-story-01/</url>
