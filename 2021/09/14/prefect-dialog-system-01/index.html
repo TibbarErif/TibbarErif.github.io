@@ -20,7 +20,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dialog.ShowText(&quot;hello,world！&quot;);</span><br></pre></td></tr></table></figure>
 
 <p>如果以后又要出一个日文版，又得再改成日文的。<br>上面这种硬编码只适合一些文本量很小的游戏。</p>
-<h3 id="MVC-结构"><a href="#MVC-结构" class="headerlink" title="MVC 结构"></a>MVC 结构</h3><p>WEB 开发有 MVC 结构，其实游戏开发也差不多。对话系统的一个实现思路就是利用「数据驱动」。相当于 WEB 后端开发中，建立一个 Model（数据模型），然后通过 Controller（控制器）来调用数据，最后将数据显示在 View（网页中的视图，游戏中的 UI）。</p>
+<h3 id="MVC-结构"><a href="#MVC-结构" class="headerlink" title="MVC 结构"></a>MVC 结构</h3><p>WEB 开发有 MVC 结构，其实游戏开发也差不多。相当于 WEB 后端开发中，建立一个 Model（数据模型），然后通过 Controller（控制器）来调用数据，最后将数据显示在 View（网页中的视图，游戏中的 UI）。</p>
 <h3 id="存储容器"><a href="#存储容器" class="headerlink" title="存储容器"></a>存储容器</h3><p>WEB 开发用来存储数据的是数据库之类的东西，而单机游戏就是本地文件了。<br>下面几种方法都可以当做对话文本的存储器：</p>
 <ul>
 <li>excel 表格</li>
