@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="【Unity小技巧】上下文？从“人被杀，就会死”说起……"><meta name="keywords" content="开发技术,unity"><meta name="author" content="火烧兔子"><meta name="copyright" content="火烧兔子"><title>【Unity小技巧】上下文？从“人被杀，就会死”说起…… | 火兔游戏工作室</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-6777753891073316',
+  enable_page_level_ads: 'true'
+});
+</script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">什么是上下文？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E5%90%8E%E6%96%87%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">前后文的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E4%B8%AD%E7%9A%84%E2%80%9C%E8%AF%AD%E5%A2%83%E2%80%9D"><span class="toc-number">4.</span> <span class="toc-text">程序中的“语境”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%98%E6%96%97%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.</span> <span class="toc-text">战斗系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AA%E6%98%AF%E7%AE%80%E5%8C%96%E5%8F%82%E6%95%B0%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">只是简化参数？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E3%80%81%E4%B8%8B%E6%96%87%E5%91%A2%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">下、下文呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E4%BB%A3%E7%A0%81"><span class="toc-number">9.</span> <span class="toc-text">优化代码</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://i.loli.net/2021/05/02/JjR7MmfePax3oc2.jpg"></div><div class="author-info__name text-center">火烧兔子</div><div class="author-info__description text-center">我的世界，在你手中。</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">157</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">44</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">30</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://i.loli.net/2021/05/02/61DLs9VHetxbq2n.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">火兔游戏工作室</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">首页</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/archives">归档</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">【Unity小技巧】上下文？从“人被杀，就会死”说起……</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-12-20</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>【上下文】这个词困扰了我很久，最早听说这个词是在两年前我在某公司上班，然后当时会给新入职的员工配置一名导师，某天导师找我谈话跟我说要去了解一下“上下文”，当时我第一次听说，有点懵逼，然后随口应承，后面去查了一下愣是没看懂，最后就不了了之了。</p>
+<p>其实这两年我偶尔看到这个词也会再去翻查一下到底是什么意思，但看了很多文章依旧没弄懂。<br>然后今天在设计游戏的战斗系统时，突然灵机一动——顿悟了！</p>
+<h2 id="什么是上下文？"><a href="#什么是上下文？" class="headerlink" title="什么是上下文？"></a>什么是上下文？</h2><p>拿一个二次元经典台词来表示就是：<strong>人被杀，就会死。</strong><br>这特喵不是废话吗？<br>但其实如果你了解了这句话的出处就不会这么以为了。</p>
+<blockquote>
+<p>这句话来自《圣杯战争》，里面有一个设定是亚瑟王 Saber 的武器 EX 咖喱棒的剑鞘有恢复能力，无论受到什么伤都可以慢慢治愈，而这个剑鞘融入了男主角的身体里，导致男主角被杀了之后复活了，男主不想依靠这种力量，把剑鞘归还给亚瑟王，然后才说出这样的话。</p>
+</blockquote>
+<p>萌娘百科里面有更详细的解释，有兴趣可以去看看：<a target="_blank" rel="noopener" href="https://zh.moegirl.org.cn/index.php?title=%E4%BA%BA%E8%A2%AB%E6%9D%80%E5%B0%B1%E4%BC%9A%E6%AD%BB&variant=zh-hans&mobileaction=toggle_view_desktop">人被杀，就会死</a></p>
+<p>如果你没看过这部动画而是听到这样的话会觉得很莫名其妙。<br>上下文如同字面意思一样，如果按照字面意思理解比较简单一点。</p>
+<p>假如有一篇文章是这样的：</p>
+<blockquote>
+<p>花花哭了。</p>
+</blockquote>
+<p>这句话你能看得出什么东西吗？<br>看得出才有鬼！</p>
+<p>花花是什么？一朵花？还是什么狸花猫、三花猫之类的动物？<br>很明显，单看这句话，你得不到任何有用的结论。</p>
+<p>这就是没头没尾的一段话。<br>但如果加入一些补充性的描述呢？</p>
+<blockquote>
+<p>小虎抢了花花的零食，于是花花哭了。</p>
+</blockquote>
+<p>好了，现在加上了一个前置语句“小虎抢了花花的零食”，这样有了前因后果，我们就能推测出小虎和花花两个是人的名字（从零食这个关键词推测出来的），而因为小虎抢了花花的零食才把花花弄哭了，花花并不是无理由就哭了。</p>
+<p>到这里，【上下文】已经有一点概念了，其实就是文章里面的【前后文】。</p>
+<h2 id="前后文的作用"><a href="#前后文的作用" class="headerlink" title="前后文的作用"></a>前后文的作用</h2><p>上面的例子中，单纯的一句话如果不根据前后文语境推敲，你不能知道这句话的真实含义。<br>这就是前后文的作用，大概就是：限制和约束的用途。</p>
+<p>一句话可能会产生很多歧义，但如果结合前后文来阅读，那这句话的含义就会变得清晰。</p>
+<p>例如高考语文最喜欢考“请简单叙述：下雨了，在本文中的用途”。<br>其实下雨了就是因为那天天气不好，纯粹的事实性描述而已，可能只是作者如实记下来而已，并没有其他原因，难不成没下雨，还要编一个下雨天出来？然后高考出卷的老家伙们，怎么还特意出这种题目？</p>
+<p>其实这样出题的目的在于【结合语境】。<br>中华文明几千年传承下来的【文字】，根据不同的语境可以产生无数种含义。</p>
+<blockquote>
+<p>比如：亲妹妹在正常人眼里就是代表有血缘关系比自己晚出生的女性，但在 LSP 眼里会产生不可描述的意思。</p>
+</blockquote>
+<p>假设有一段文字：</p>
+<blockquote>
+<p>花花的父母早逝，是爷爷把她拉扯大的，每当花花在外面受委屈了就扑到爷爷的怀里痛哭一场，爷爷会轻轻的抚摸她的头安慰她。可是有一天，爷爷染上了风寒，虽然找了城里最好的医生，但爷爷年弱体迈的身体终究没有挺过去，在一个夜晚与花花告别后便闭上了眼睛。花花啜泣不止，跑到屋子外面大哭了起来。<strong>外面的风很大，云突然聚拢了起来，黑压压的一片，打雷了，下雨了。</strong>屋子里面，爷爷静静的躺着；屋子外面，雨声、雷声，还有花花的哭声。</p>
+</blockquote>
+<p>我们把其中的天气描写提取出来：</p>
+<blockquote>
+<p>外面的风很大，云突然聚拢了起来，黑压压的一片，打雷了，下雨了。</p>
+</blockquote>
+<p>然后给这段句子续上前后文：</p>
+<blockquote>
+<p>“今天天气预报会下雨，妈妈要出门了，你记得要把阳台的衣服收起来。”花花躺在床上懒洋洋的回了一句“知道啦”，然后继续在床上玩手机，随后听到妈妈出门的声音。妈妈一出门，花花马上就变得精神了！把藏在枕头下面的小霸王游戏机拿了出来，不一会就沉浸在游戏里了，到了中午时候，<strong>外面的风很大，云突然聚拢了起来，黑压压的一片，打雷了，下雨了。</strong>但此时此刻花花还沉浸在游戏里，晾在阳台的衣服被打湿了……</p>
+</blockquote>
+<p>可以发现——这两段文字一模一样，但是放到不同的前后文意思全然不同！<br>这就是【语境】的作用，可以让一段完全相同的话产生不同的意思。</p>
+<blockquote>
+<p>在程序中，相同的代码如果在不同的【语境】就会产生不同的执行结果，而为了保证执行结果的唯一性，就必须要保证前后文一致，这在后面会更详细的说明，先继续往下看吧。</p>
+</blockquote>
+<h2 id="程序中的“语境”"><a href="#程序中的“语境”" class="headerlink" title="程序中的“语境”"></a>程序中的“语境”</h2><p>不仅是文章，在程序里面也是有【语境】的。<br>在程序中的【语境】用【状态】来描述比较准确。<br>我们都知道代码是由上往下执行的，但这种方式是同步执行。<br>现代的开发都支持【异步】，异步意味着可以并行操作，例如多线程。<br>当开启了多线程之后，其中一部分的程序就可以分配到另一条线程里面去执行了。<br>不同线程之间，程序执行的结果肯定不一样，线程之间是隔离状态的。<br>那这样一个异步的程序，就可能因为所处的线程不一样导致执行结果与预期的不一样。</p>
+<p>假如有一个变量 a=10，在同一个线程里，程序拿到这个变量肯定还是 10。<br>但如果你想一下，如果这个变量在别的线程里被修改了呢？<br>为什么我们的代码可以由上往下执行，而且变量还能保持一致性？</p>
+<p>这是因为它们是在同一个线程执行的，当然保持一样了。<br>假设有两个线程 A 和 B，在 A 线程里把变量 a 改成 11，在 B 线程里输出 a 变量，结果等于……？<br>答案肯定是 10，因为线程之间是隔离的，总不可能你改了变量的值，还影响到别的程序吧？</p>
+<p>如果不能理解的话，那可以想一想【静态变量】。<br>静态变量是在程序运行的时候加载到内存的，一个网页或者 APP 有很多人同时访问，为什么你定义了一个静态变量，然后其中一个用户改了静态变量的值，其他用户取到的结果却是正常的？</p>
+<p>这是因为线程之间是隔离的，以 PHP 为例，PHP-FPM 会在用户访问的时候开启一个独立的线程用来处理程序，而不是给大家共用，你在这个线程里修改了静态变量的值，那只会在这个线程里改变，但是其他线程的没影响啊。所以程序才能有唯一的执行结果，如果程序的执行没有隔离开来，每个人都改一下变量，程序还要怎么保证有唯一的输出结果呢？</p>
+<p>好了，现在知道了程序中也存在【语境】的概念，并且【异步】执行的代码会导致执行环境发生改变，如果我们想要让异步执行的代码保持同样的语境呢？这就要用到上下文的概念了，例如协程的操作存在【协程上下文】，只要我们在代码异步执行之前，保存好当前环境的【语境】，然后告诉它就行了。</p>
+<blockquote>
+<p>用到【上下文】的场景不一定是在异步开发中，而是任何需要用到【当前执行状态】的地方。</p>
+</blockquote>
+<h2 id="战斗系统"><a href="#战斗系统" class="headerlink" title="战斗系统"></a>战斗系统</h2><p>好了，知道【上下文】等同于文章的【语境】作用，那么就来看一下游戏中的上下文。</p>
+<p>在游戏中，【进入战斗场景】有多种情况：<br>①在城镇地图碰到敌人进入战斗<br>②在大地图碰到敌人进入战斗<br>③在副本地图碰到敌人进入战斗<br>这三种情况，加载的场景是不一样的。<br>如果是在城镇地图进入战斗，则需要暂停掉当前场景；<br>如果是在大地图碰到敌人，则需要暂停掉大地图场景；<br>如果是在副本碰到敌人，则需要将副本的场景暂停掉。</p>
+<blockquote>
+<p>注意：这里的场景都不是同一个类，不能直接写一个 Map 来继承，比如大地图上面是 RPG Maker 那种玩家控制一个能够四方向移动的小人，然后踩地雷进入战斗；而城镇场景却只是一张贴图加一些 UI，即手游的主城，类似手游中世界 Boss 直接点击 UI 就能战斗；但是副本场景是像大富翁那样投骰子移动的，踩到怪物格子就进入战斗。总之，这三个场景是完全不同的类，无法用通用的 Map 实现。</p>
+</blockquote>
+<p>如果要写一个方法来实现，就要类似如下这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 此处省略一些无关参数，如敌人参数等等</span><br><span class="line">SceneLoader.LoadBattleScene(System.Action initCallback, System.Action endCallback);</span><br></pre></td></tr></table></figure>
+
+<p>initCallback 用来处理暂停当前场景；<br>endCallback 用来处理当战斗结束时，解除当前场景的暂停状态。</p>
+<p>如此一来每个【进入战斗】的处理都要写一个回调，十分麻烦。<br>但如果是【上下文】的话，只需要传入一个当前上下文参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Context是自己定义的类型</span><br><span class="line">SceneLoader.LoadBattleScene(Context context);</span><br></pre></td></tr></table></figure>
+
+<p>然后直接在 LoadBattleScene 方法里面处理不同上下文的战斗开始、战斗结束回调。<br>Context 用于保存玩家所在的场景信息，这样就可以直接省略掉两个回调参数。</p>
+<h2 id="只是简化参数？"><a href="#只是简化参数？" class="headerlink" title="只是简化参数？"></a>只是简化参数？</h2><p>当然我们不只是为了简化参数才用上下文的。<br>而是上下文可以拿到当前环境中的其他参数。</p>
+<p>上面的例子，一共存在三个【环境】，分别是：①城镇，②大地图，③副本。</p>
+<p>而这些环境里面有很多参数，比如城镇里有武器店老板（NPC），而大地图肯定没有 NPC，而是一些城池之类的可以让玩家进去的地点，而副本中会有宝箱之类的东西，这些东西都是可以从上下文中拿到的。</p>
+<p>上下文保存的是程序的【执行状态】，打个比方就是游戏中的存档和读档，我在家玩游戏的时候，存个 Steam 云档（保存上下文），在上班摸鱼的时候登录 Steam  账号，直接读取云档，然后就可以从昨天在家玩的进度继续游戏了。</p>
+<h2 id="下、下文呢？"><a href="#下、下文呢？" class="headerlink" title="下、下文呢？"></a>下、下文呢？</h2><p>上面一直都在说【上下文】，可文章只提到了“上文”即来源环境，但“下文”呢？<br>答案是：<strong>没有下文</strong>。<br>因为下文本身也可以当做“上文”。<br>其实下文一般都是执行完结果了，别的地方根本用不到，如果要用到就再当做“上文”就行了。<br>上下文连着说只是为了比较顺口。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>【上下文】其实就是【环境】的意思，程序运行到此处的环境是什么，就叫做上下文。<br>也可以叫做【执行状态】，即把程序当前的运行状态保存下来，拿到别的地方（下文）用。</p>
+<p>回到最初，那位导师想告诉的的其实是【协程的上下文】。<br>如果不是因为学习了 Unity，如果不是因为学习了 C#，如果不是因为游戏的许多场景都要用到协程，那么我可能很难理解这个概念，因为我根本就没有用到上下文的使用场景，在各种机缘巧合的相互作用之下，才有了今天的【顿悟】。</p>
+<p>但对于一些人来说，这可能就是稀松平常的事情。<br>三国的刘禅说的一句经典台词：何不食肉糜？<br>百姓没米吃饿死了，那为什么不吃肉呢？<br>这听起来很蠢……</p>
+<p>但是——每个人的经历都不同，自然无法感同身受了。</p>
+<h2 id="优化代码"><a href="#优化代码" class="headerlink" title="优化代码"></a>优化代码</h2><p>【上下文】即保存当前游戏的【状态】。<br>状态的范围很广，比如保存游戏的配置、玩家的角色位置、所在的地图等等。</p>
+<p>原来保存这些全局的属性我是使用一个 <code>Global</code> 类的静态变量来存储这些数据的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Global</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; 玩家当前所在场景</span><br><span class="line">    public static Scene_Map map;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 玩家所在位置</span><br><span class="line">    public Vector3 position;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 游戏语言</span><br><span class="line">    public string language;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 文本显示速度</span><br><span class="line">    public float textSpeed;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; ... 其他一些属性</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但在理解了上下文之后，再结合 WEB 开发的思想，又想到一个比较好的点子。</p>
+<p>WEB 开发中，用户访问网页相当于一个请求，而一般的开发框架会将这个请求封装起来。<br>为了保持请求的状态，框架也会封装【上下文】，然后在框架内部可以很方便的进行调用。<br>同理，游戏开发中，也可以有着【单一入口原则】，即只包含一个 <code>MainScene</code>（主场景）。<br>所有的场景都做成预制体，根据玩家的请求实例化对应的预制体（类似于 WEB 开发中的路由将 URI 转化成控制器对应的方法）。</p>
+<p>游戏中有一些属性是常用的，比如游戏的设置（如音量、语言、文本显示速度等），为了方便在其他地方获取这些属性，可以封装为一个实例，而这个实例作为一个静态变量提供给全局进行访问。</p>
+<p>其实就是原来我用的 <code>Global</code> 类再进行比较结构性的封装，这样做跟原本用静态变量一个个存储调用方法一致。</p>
+<p>先定义一个上下文的基础类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class BaseContext</span><br><span class="line">&#123;</span><br><span class="line">    public string origin;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>接着再定义一个用来保存游戏全局属性的上下文类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class GameContext : BaseContext</span><br><span class="line">&#123;</span><br><span class="line">    public Scene_Map currentMap;</span><br><span class="line">    public Vector2 playerLocale;</span><br><span class="line"></span><br><span class="line">    public GameContext()</span><br><span class="line">    &#123;</span><br><span class="line">        origin &#x3D; Constant.CONTEXT_GAME;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后 <code>Global</code> 里面设置一个静态变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class Global</span><br><span class="line">&#123;</span><br><span class="line">    public static GameContext context;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后在游戏启动的时候，把上下文所需要的属性赋值给这个变量就行了。</p>
+<p>优化之后的调用方式其实没有太大的区别，就是调用类的静态属性而已。<br>但原本的方法属于面向过程式的开发，纯粹的变量没有任何特殊含义，如果封装成一个上下文就是一种有逻辑关联的结构了。</p>
+<p>除了更加规范之外，如果将当前的状态全部封装成一个上下文，还可以实现游戏状态保存下来，也就是【存档】，而如果是恢复游戏状态，那就是【读档】了。</p>
+<p>除了 <code>GameContext</code> 用于存储游戏的全局状态，还可以再定义 <code>MapContext</code> 用来保存当前场景的状态……诸如此类。</p>
+<p>嗯……这样看起来比较规范了。<br>（成就感+1）</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">火烧兔子</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://huotuyouxi.com/2021/12/20/unity-tips-009/">http://huotuyouxi.com/2021/12/20/unity-tips-009/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://huotuyouxi.com">火兔游戏工作室</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/">开发技术</a><a class="post-meta__tags" href="/tags/unity/">unity</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/12/21/unity-tips-010/"><i class="fa fa-chevron-left">  </i><span>【Unity小技巧】对象即是“引用”</span></a></div><div class="next-post pull-right"><a href="/2021/12/13/download/"><span>以前的作品下载地址合集</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://i.loli.net/2021/05/02/61DLs9VHetxbq2n.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2023 By 火烧兔子</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
