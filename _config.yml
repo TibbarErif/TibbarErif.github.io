@@ -104,4 +104,4 @@ theme: melody
 deploy:
   type: git
   repo: https://github.com/TibbarErif/TibbarErif.github.io
-  branch: master
+  branch: main
