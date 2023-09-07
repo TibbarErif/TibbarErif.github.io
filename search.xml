@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Github 遇到 443 报错的解决方法</title>
+      <link href="2023/09/07/github-03/"/>
+      <url>2023/09/07/github-03/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于某些不可名状的原因，在提交到 github 的时候会遇到报错：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to connect to github.com port 443</span><br></pre></td></tr></table></figure><p>而如果我们本地有开启了代理（fanqiang）但却还是报这个错误，说明提交的时候没有走代理，这个时候需要设置 git 的代理才可以。</p><blockquote><p>不可名状的原因：Github 间歇性被墙，因此有时能正常提交，有时候就不行了。</p></blockquote><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>以 shadowsockets 为例，如下图所示，选择偏好设置。</p><p><img src="https://s2.loli.net/2023/09/07/tFPdNr9csQknzZo.jpg" alt="iShot_2023-09-07_19.22.06.jpg"></p><p>接着选择 HTTP，然后将“开启HTTP代理”，“全局模式时，在系统代理设置中设置HTTP代理服务器”一起勾选。</p><p><img src="https://s2.loli.net/2023/09/07/vLurOifRqcnBmda.jpg" alt="iShot_2023-09-07_19.20.29.jpg"></p><p>注意上面的 HTTP 代理服务器端口号码。</p><p>接着设置 git 全局代理，以我的为例，上面的 HTTP 代理端口号码是 1087，因此命令如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># http</span><br><span class="line">git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1087</span><br><span class="line"></span><br><span class="line"># https</span><br><span class="line">git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1087</span><br></pre></td></tr></table></figure><p>加上 <code>--global</code> 参数即代表全局，这个参数可以去掉，去掉的话就变成单独为当前仓库设置代理，有的时候我们会用国内的 coding 或者 gitee，如果用代理反而会让提交速度变慢，只有提交到 github.com 才需要用到代理。</p><p>这个时候再 push 就不会遇到 443 错误了，如果需要取消全局代理呢？</p><p>用下面的命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日常学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Github 删除某个 commit 记录</title>
       <link href="2023/09/07/github-02/"/>
       <url>2023/09/07/github-02/</url>
