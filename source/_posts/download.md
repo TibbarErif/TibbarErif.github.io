@@ -11,6 +11,10 @@ categories:
 ## 前言
 以前发布的游戏整合版。
 
+全系列作品网盘下载：[https://pan.baidu.com/s/1N3yOWfC1UE8Uj8QeWteVUw?pwd=yx5j](https://pan.baidu.com/s/1N3yOWfC1UE8Uj8QeWteVUw?pwd=yx5j)
+
+备用链接：[https://pan.baidu.com/s/1LJ58-85ptVJtMfuv-h1suw?pwd=kzvh](https://pan.baidu.com/s/1LJ58-85ptVJtMfuv-h1suw?pwd=kzvh)
+
 ## 黑暗刻印
 发布日期：2012-2-9 
 首发地址：[https://rpg.blue/thread-222374-1-1.html](https://rpg.blue/thread-222374-1-1.html)
@@ -105,8 +109,8 @@ categories:
 最后，记得随手存档，而且要保存到不同的位置，比如最终 BOSS，如果你打不过，可以读到之前的档然后继续刷装备，再重新挑战。
 
 ### 下载地址
-下载链接: [https://pan.baidu.com/s/17y_o0gsIeGvG65dJg8XQPw](https://pan.baidu.com/s/17y_o0gsIeGvG65dJg8XQPw) 
-提取码: kcp6
+下载链接: [https://pan.baidu.com/s/1SA5u4IR8s-cnNeCJTe0MMw?pwd=uzzn](https://pan.baidu.com/s/1SA5u4IR8s-cnNeCJTe0MMw?pwd=uzzn) 
+提取码: uzzn
 
 ## 宠物战记
 发布日期：2013-2-16
